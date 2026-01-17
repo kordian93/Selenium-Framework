@@ -1,0 +1,55 @@
+#!/bin/bash
+FAIL=0
+
+validate_keys() {
+    local file=$1
+    local mode=$2
+    shift 2
+    local keys=("$@")
+
+    local content
+    content=$(git show ":$file" 2>/dev/null) || return
+
+    for key in "${keys[@]}"; do
+        if echo "$content" | grep -qE "^[[:space:]]*$key="; then
+            local value
+            value=$(echo "$content" | grep -E "^[[:space:]]*$key=" | cut -d'=' -f2-)
+
+            case "$mode" in
+                empty-only)
+                    if [[ -n "$value" ]]; then
+                        echo "Commit blocked: $key must be empty in $file"
+                        FAIL=1
+                    fi
+                    ;;
+                enc-or-empty)
+                    if [[ -n "$value" && ! "$value" =~ ^ENC\( ]]; then
+                        echo "Commit blocked: $key must be empty or encrypted in $file"
+                        FAIL=1
+                    fi
+                    ;;
+            esac
+        fi
+    done
+}
+
+APP_PROP="ecom-ui-tests/src/main/resources/application.properties"
+if git diff --cached --name-only | grep -q "^${APP_PROP}$"; then
+    validate_keys "$APP_PROP" "empty-only" "jasypt.encryptor.password"
+    validate_keys "$APP_PROP" "enc-or-empty" \
+        "test.example"
+fi
+
+for env in test preprod prod; do #envs
+    FILE="ecom-ui-tests/src/main/resources/application-${env}.properties"
+    if git diff --cached --name-only | grep -q "^${FILE}$"; then
+        validate_keys "$FILE" "enc-or-empty" "test.example"
+    fi
+done
+
+if [[ $FAIL -eq 1 ]]; then
+    echo "Commit rejected due to unencrypted sensitive data."
+    exit 1
+fi
+
+exit 0
