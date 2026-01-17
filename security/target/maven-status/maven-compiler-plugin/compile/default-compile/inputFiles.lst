@@ -1,0 +1,8 @@
+/home/konrad/repos/Selenium-Framework/security/src/main/java/support/annotations/StringOrMasked.java
+/home/konrad/repos/Selenium-Framework/security/src/main/java/support/config/EncryptorProperties.java
+/home/konrad/repos/Selenium-Framework/security/src/main/java/support/config/JasyptConfig.java
+/home/konrad/repos/Selenium-Framework/security/src/main/java/support/crypto/EncryptorTool.java
+/home/konrad/repos/Selenium-Framework/security/src/main/java/support/masking/MaskedString.java
+/home/konrad/repos/Selenium-Framework/security/src/main/java/support/masking/MaskedStringAssert.java
+/home/konrad/repos/Selenium-Framework/security/src/main/java/support/masking/MaskedStringConverter.java
+/home/konrad/repos/Selenium-Framework/security/src/main/java/support/processors/StringOrMaskedProcessor.java

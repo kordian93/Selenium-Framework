@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "test.config",
+      "type": "config.TestConfig",
+      "sourceType": "config.TestConfig"
+    },
+    {
+      "name": "test.data",
+      "type": "config.TestDataConfig",
+      "sourceType": "config.TestDataConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "test.config.base-url",
+      "type": "java.lang.String",
+      "sourceType": "config.TestConfig"
+    }
+  ],
+  "hints": []
+}
