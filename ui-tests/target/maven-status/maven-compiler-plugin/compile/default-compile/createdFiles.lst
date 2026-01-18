@@ -1,6 +1,0 @@
-META-INF/spring-configuration-metadata.json
-config/TestDataConfig.class
-config/TestConfig.class
-config/PropertiesBootstrapConfig.class
-pages/base/IPages.class
-pages/base/BaseNePage.class
