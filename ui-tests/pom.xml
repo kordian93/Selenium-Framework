@@ -62,6 +62,9 @@
                     <testFailureIgnore>false</testFailureIgnore>
                     <systemPropertyVariables>
                         <spring.profiles.active>${spring.profiles.active}</spring.profiles.active>
+                        <allure.results.directory>
+                            ${project.build.directory}/allure-results
+                        </allure.results.directory>
                     </systemPropertyVariables>
                     <includes>
                         <include>**/*Test.java</include>
@@ -70,12 +73,6 @@
                         --add-opens java.base/java.lang=ALL-UNNAMED
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                    <systemPropertyVariables>
-                        <property>
-                            <name>allure.results.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
-                        </property>
-                    </systemPropertyVariables>
                 </configuration>
 
             </plugin>
