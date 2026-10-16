@@ -1,12 +1,10 @@
 package base;
 
 import com.google.common.collect.ImmutableMap;
-
 import config.PropertiesBootstrapConfig;
 import config.TestConfig;
 import config.TestDataConfig;
 import io.qameta.allure.Allure;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -22,18 +20,16 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Listeners;
-
 import pages.base.IPages;
 import support.config.BrowserStackConfig;
 import support.config.CoreConfig;
 import support.context.ContextHolder;
 import support.context.SpringContext;
+import support.listeners.BaseListener;
 
 import java.util.Objects;
 
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
-
-import support.listeners.BaseListener;
 
 @SpringBootTest
 @ContextConfiguration(classes = {PropertiesBootstrapConfig.class})
