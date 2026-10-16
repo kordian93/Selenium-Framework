@@ -13,8 +13,8 @@
     <artifactId>security</artifactId>
     <packaging>jar</packaging>
 
-    <name></name>
-    <description></description>
+    <name>Selenium Framework Security</name>
+    <description>Security module for the Selenium Framework, providing configuration, and encryption support.</description>
 
     <build>
         <plugins>

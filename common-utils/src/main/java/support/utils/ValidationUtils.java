@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
 @Log4j2
 public class ValidationUtils {
 
-    private static final Pattern EMAIL_PATTERN
-            = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    private static final Pattern EMAIL_PATTERN =
+            Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
 
     public static boolean isValidEmail(@StringOrMasked Object value) {
         String stringValue = getStringValue(value);
@@ -36,7 +36,7 @@ public class ValidationUtils {
         try {
             Integer.parseInt(stringValue);
             return true;
-        } catch (NumberFormatException | NullPointerException e) {
+        } catch (NumberFormatException | NullPointerException _) {
             return false;
         }
     }
@@ -49,7 +49,7 @@ public class ValidationUtils {
 
             int port = url.getPort();
             return port == -1 || (port >= 1 && port <= 65535);
-        } catch (MalformedURLException e) {
+        } catch (MalformedURLException _) {
             return false;
         }
     }

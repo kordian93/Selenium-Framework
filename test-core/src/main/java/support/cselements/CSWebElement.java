@@ -54,7 +54,7 @@ public class CSWebElement implements WebElement {
 
         try {
             return driver.findElement(by);
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException _) {
             parentPage.waitForLoaders();
             return driver.findElement(by);
         }
@@ -215,7 +215,7 @@ public class CSWebElement implements WebElement {
     public boolean isNotDisplayed() {
         try {
             return wait.forElementNotVisible(this);
-        } catch (Exception e) {
+        } catch (Exception _) {
             return true;
         }
     }

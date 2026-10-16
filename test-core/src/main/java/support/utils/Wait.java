@@ -64,7 +64,7 @@ public class Wait {
         try {
             return createFluentWait(timeout, POLLING_INTERVAL)
                     .until(f -> !driver.findElements(el.getBy()).isEmpty());
-        } catch (TimeoutException e) {
+        } catch (TimeoutException _) {
             return false;
         }
     }
@@ -76,7 +76,7 @@ public class Wait {
     public boolean isNotPresent(By by) {
         try {
             return createFluentWait().until(f -> driver.findElements(by).isEmpty());
-        } catch (TimeoutException e) {
+        } catch (TimeoutException _) {
             return false;
         }
     }
@@ -99,7 +99,7 @@ public class Wait {
         try {
             return createFluentWait(timeout, POLLING_INTERVAL)
                     .until(ExpectedConditions.visibilityOfElementLocated(el.getBy()));
-        } catch (TimeoutException e) {
+        } catch (TimeoutException _) {
             return null;
         }
     }
@@ -116,7 +116,7 @@ public class Wait {
         try {
             return createFluentWait(duration, POLLING_INTERVAL)
                     .until(ExpectedConditions.invisibilityOfElementLocated(el.getBy()));
-        } catch (TimeoutException e) {
+        } catch (TimeoutException _) {
             return false;
         }
     }
@@ -124,7 +124,7 @@ public class Wait {
     public boolean forElementNotVisible(By by) {
         try {
             return createFluentWait().until(ExpectedConditions.invisibilityOfElementLocated(by));
-        } catch (TimeoutException e) {
+        } catch (TimeoutException _) {
             return false;
         }
     }
@@ -147,7 +147,7 @@ public class Wait {
             return elements.stream().anyMatch(el -> {
                 try {
                     return Objects.requireNonNull(el.getDomAttribute(attribute)).contains(value);
-                } catch (TimeoutException | StaleElementReferenceException | NullPointerException e) {
+                } catch (TimeoutException | StaleElementReferenceException | NullPointerException _) {
                     return false;
                 }
             });

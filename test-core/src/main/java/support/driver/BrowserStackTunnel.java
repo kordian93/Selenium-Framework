@@ -46,7 +46,7 @@ public class BrowserStackTunnel {
                         .inheritIO()
                         .start()
                         .waitFor();
-            } catch (Exception e) {
+            } catch (Exception _) {
             }
 
             local = new Local();
@@ -86,7 +86,7 @@ public class BrowserStackTunnel {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
                 return reader.lines().anyMatch(line -> line.contains("BrowserStackLocal.exe"));
             }
-        } catch (Exception e) {
+        } catch (Exception _) {
             return false;
         }
     }
